@@ -22,14 +22,15 @@ public class MvcController {
 
     @GetMapping
     Map<String, List<String>> callMvc(){
-        Enumeration<String> headerNames = request.getHeaderNames();
-        HttpHeaders headers = new HttpHeaders();
-        while (headerNames.hasMoreElements()) {
-            String headerName = headerNames.nextElement();
-            String headerValue = request.getHeader(headerName);
-            headers.add(headerName, headerValue);
-        }
+//        Enumeration<String> headerNames = request.getHeaderNames();
+//        HttpHeaders headers = new HttpHeaders();
+//        while (headerNames.hasMoreElements()) {
+//            String headerName = headerNames.nextElement();
+//            String headerValue = request.getHeader(headerName);
+//            headers.add(headerName, headerValue);
+//        }
 
-        return remoteClient.call(headers);
+        //return remoteClient.call(headers);
+        return remoteClient.call();
     }
 }
