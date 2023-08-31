@@ -15,7 +15,14 @@ public class ServiceTokenHeaderInterceptor implements RequestInterceptor {
     public void apply(RequestTemplate template) {
         try {
             Map<String, String> map = Optional.ofNullable(MDC.getCopyOfContextMap()).orElse(Collections.emptyMap());
-            template.header("x-dealer-id", getValueByKey(map, "x-dealer-id"));
+            var dealerId = getValueByKey(map, "x-dealer-id");
+            template.header("x-dealer-id", dealerId);
+
+            if ("abc".equals(dealerId)) {
+                template.target("http://localhost:8080");
+            } else {
+                template.target("http://localhost:8081");
+            }
         } catch (Exception e) {
             System.out.println("-----------------");
         }

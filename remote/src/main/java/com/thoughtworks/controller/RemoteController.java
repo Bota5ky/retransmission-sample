@@ -30,6 +30,7 @@ public class RemoteController {
                 headers.put(name, Collections.list(request.getHeaders(name)));
             }
         }
+        System.out.println("forwarding......");
         return headers;
     }
 }

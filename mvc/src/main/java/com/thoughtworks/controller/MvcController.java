@@ -17,8 +17,8 @@ public class MvcController {
     @Autowired
     private RemoteClient remoteClient;
 
-    @Autowired
-    private HttpServletRequest request;
+//    @Autowired
+//    private HttpServletRequest request;
 
     @GetMapping
     Map<String, List<String>> callMvc(){
